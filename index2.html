@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graphic Design Portfolio</title>
+
+<!--Icons-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!--Fonts-->
+
+<!--Google sans, Poppins-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!--Inter font-->
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.google-sans-flex-fonts {
+  font-family: "Google Sans Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 100,
+    "GRAD" 0,
+    "ROND" 0;
+}
+
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root { font-family: InterVariable, sans-serif; }
+}
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,sans-serif;
+    background:
+    linear-gradient(135deg,#f7f7f7,#ececec);
+    color:#111;
+    line-height:1.8;
+}
+
+/* LAYOUT */
+.container{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:140px;
+    max-width:1600px;
+    margin:auto;
+    padding:80px;
+}
+
+/* SIDEBAR */
+/* SIDEBAR */
+.sidebar{
+    position:sticky;
+    top:50px;
+    height:fit-content;
+
+    padding:40px;
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.18);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.4);
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,.08);
+}
+.profile{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    overflow:hidden;
+    margin-bottom:30px;
+}
+
+.profile img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.sidebar h2{
+    font-size:2rem;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.role{
+    color:#777;
+    margin-bottom:50px;
+}
+
+.sidebar nav{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin-bottom:40px;
+}
+
+.sidebar a{
+    color:#777;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.sidebar a:hover{
+    color:black;
+}
+
+.icon-row{
+    display:flex;
+    gap:15px;
+}
+
+.social-links,
+.email{
+    display:flex;
+    gap:15px;
+}
+
+.social-links a,
+.email a{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:white;
+    color:black;
+    text-decoration:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+    transition:.3s;
+}
+
+.social-links a:hover,
+.email a:hover{
+    transform:translateY(-3px);
+}
+
+/* CONTENT */
+.content{
+    max-width:900px;
+}
+
+section{
+    margin-bottom:120px;
+}
+
+.section-title{
+    font-size:3rem;
+    font-weight:600;
+    margin-bottom:50px;
+}
+
+/* ABOUT */
+
+.about-box{
+    max-width:700px;
+    color:#555;
+    font-size:1.1rem;
+}
+
+/* PROJECTS */
+
+.project{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    margin-bottom:80px;
+    transition:.4s;
+}
+
+
+.project:hover{
+    transform:translateY(-6px);
+}
+
+.project-description:hover{
+    background:rgba(255,255,255,.25);
+}
+
+.project-image{
+    width:340px;
+    height:340px;
+
+    flex-shrink:0;
+
+    border-radius:28px;
+    overflow:hidden;
+
+    background:#eee;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+}
+
+
+
+.project-image:hover{
+    transform:translateY(-6px);
+}
+
+.project-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.project-description h3{
+    font-size:1.6rem;
+    margin-bottom:15px;
+}
+
+.project-description p{
+    color:#666;
+}
+
+.project-description{
+    flex:1;
+
+    padding:35px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.45);
+
+    box-shadow:
+    0 8px 30px rgba(0,0,0,.06);
+}
+
+/*Styles for larger images that aren't fitting*/
+/* .project {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+} */
+
+.project-image-LG {
+    width: 350px;
+    height: 350px;
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius:28px;
+    overflow:hidden;
+
+    background:#eee;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+}
+
+.project-image-LG img {
+    max-width: 100%;
+    max-height: 100%;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+    display: block;
+}
+
+
+/* CONTACT */
+
+.contact-box{
+    max-width:600px;
+}
+
+.contact-box input,
+.contact-box textarea{
+    width:100%;
+    padding:18px 0;
+    border:none;
+    border-bottom:1px solid #ddd;
+    background:none;
+    margin-bottom:30px;
+    font-size:1rem;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus{
+    outline:none;
+    border-color:black;
+}
+
+.contact-box button{
+    border:none;
+    background:black;
+    color:white;
+    padding:16px 32px;
+    border-radius:100px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.contact-box button:hover{
+    opacity:.8;
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(255,255,255,.95);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+}
+
+.close{
+    position:absolute;
+    top:30px;
+    right:40px;
+    font-size:3rem;
+    cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+.container{
+    grid-template-columns:1fr;
+    gap:80px;
+    padding:40px;
+}
+
+.sidebar{
+    position:relative;
+}
+
+.section-title{
+    font-size:2.2rem;
+}
+
+.project-image{
+    height:350px;
+}
+.project{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.project-image{
+    width:100%;
+    max-width:400px;
+    height:auto;
+}
+
+.project-description{
+    width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+  <!-- LIGHTBOX POPUP -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
+
+<div class="container">
+
+    <aside class="sidebar">
+
+        <div class="profile">
+        <img src="images/portfolio_foto.jpg">
+        </div>
+        
+        <h2>Bradyn Anderson</h2>
+        
+        <p class="role">
+        Graphic & UI/UX Designer<br>
+        UTA Communication Technology
+        </p>
+        
+        <nav>
+        <a href="#about">About</a>
+        <a href="#designs">Selected Work</a>
+        <a href="#contact">Contact</a>
+        </nav>
+        
+        <div class="icon-row">
+        
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/bradynanderson/" target="_blank">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+        
+                <a href="https://www.instagram.com/b.page.anderson/" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+        
+                <a href="https://x.com/BPage_Anderson" target="_blank">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+            </div>
+        
+        <div class="email">
+            <a href="mailto:bradynanderson1@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+        
+        </div>
+
+        </aside>
+
+    <!-- SCROLLABLE CONTENT -->
+    <main class="content">
+
+        <!-- ABOUT -->
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+
+            <div class="about-box">
+                I am a Graphic Designer with a degree in Communication Technology
+                from the University of Texas at Arlington. I specialize in branding,
+                digital design, and social media visuals, as well as UI/UX design. I enjoy creating clean,
+                modern & retro visuals that help brands communicate clearly and effectively.
+                <br><br>
+                My focus is on building strong visual storytelling through typography,
+                layout, and color systems and focusing on people-centered design.
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="designs">
+
+        <section id="designs">
+            <h2 class="section-title">Graphic Designs</h2>
+
+
+
+            <!--Anna Poster-->
+            <div class="project">
+                <div class="project-image">
+                    <img src="images/ann-poster.jpg" class="popup">
+            </div>
+                <div class="project-description">
+                    <h3>Anna Pavlova Poster</h3>
+                    Designed a vintage-inspired promotional poster celebrating the legacy of ballerina Anna Pavlova. The composition combines bold typography, distressed textures, and layered color separations to create a retro screen-printed aesthetic. Motion blur and repeated silhouettes convey movement and energy, while the striking yellow, red, and black palette evokes the look of early 20th-century performance posters and contemporary grunge design.
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-image-LG">
+                    <img src="images/anna_poster.png" class="popup">
+            </div>
+            </div>
+
+            <!--B logo-->
+
+            <div class="project">
+            <div class="project-image">
+                <img src="images/bacardi-mockup.jpg" class="popup">
+            </div>
+            <div class="project-description">
+                <h3>Bacardi Concept Redesign</h3>
+                Created a redesign of the classic Bacardi company logo, consisting of a decorative monogram and custom wordmark accented with celestial symbols and illustrative elements. The identity draws inspiration from vintage typography and cosmic themes to convey a brand personality that is elegant, imaginative, and uniquely memorable.
+
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-image">
+                <img src="images/b-mascot-mockup.jpg" class="popup">
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="project-image">
+                <img src="images/B-logo.pdf" class="popup">
+            </div>
+            </div>
+
+        <div class="project">
+            <div class="project-image">
+                <img src="images/B-logo-mascot_Mascot - Color.png"  class="popup">
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="project-image-LG">
+                <img src="images/B-logo-WordMark-BW.png" class="popup">
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-image-LG">
+            <img src="images/B-logo-WordMark-color.png" class="popup">
+            </div>
+        </div>
+
+        <!--Cafe logo-->
+
+        <div class="project">
+        <div class="project-image" >
+            <img src="images/cafe-logo-mockup-curved.jpg" class="popup">
+        </div>
+        <div class="project-description">
+            <h3>Retro Coffee Logo Design</h3>
+            Designed a visual identity for a retro coffee shop inspired by 1970s Americana and classic diner aesthetics. Featuring bold typography and nostalgic design elements, the branding captures the warmth and familiarity of gathering over a cup of coffee while maintaining a modern, versatile feel for print and digital applications.
+
+        </div>
+    </div>
+    <div class="project">
+        <div class="project-image" >
+            <img src="images/cafe-logo-2.png" class="popup">
+        </div>
+    </div>
+
+
+    <!--Shadow Study-->
+    <div class="project">
+        <div class="project-image">
+        <img src="images/shadow-mockup.jpg" class="popup">
+        </div>
+        <div class="project-description">
+            <h3>Shadow Typography Design</h3>
+            A typographic study examining how light and shadow influence form, readability, and visual rhythm. By experimenting with depth and contrast, the project explores the ways shadows can create dimension and mood while enhancing the interaction between negative space and letterforms.
+
+        </div>
+    </div>
+    <div class="project">
+    <div class="project-image-LG">
+        <img src="images/shadow_study-copy.png" class="popup">
+    </div>
+</div>
+
+</section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+
+            <div class="contact-box">
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="1a2f6463-0c49-4fd2-8c1a-c1092e08ba15">
+                    <label>Name</label>
+                    <input type="text" placeholder="Your Name" name="name" required>
+
+                    <label>Email</label>
+                    <input type="email" placeholder="Your Email" name="email" required>
+
+                    <label>Message</label>
+                    <textarea rows="5" placeholder="Your Message" name="message" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+ /* =====================
+   LIGHTBOX
+===================== */
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+document.querySelectorAll(".popup").forEach(img => {
+    img.onclick = () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+    }
+});
+
+document.querySelector(".close").onclick = () => {
+    lightbox.style.display = "none";
+};
+
+  </script>
+</body>
+</html>
