@@ -66,10 +66,11 @@ body{
     gap:140px;
     max-width:1600px;
     margin:auto;
-    padding:80px;
+    padding:60px;
 }
 
-/* SIDEBAR */
+
+
 /* SIDEBAR */
 .sidebar{
     position:sticky;
@@ -109,7 +110,7 @@ body{
 }
 
 .role{
-    color:#777;
+    color:#131313;
     margin-bottom:50px;
 }
 
@@ -121,13 +122,14 @@ body{
 }
 
 .sidebar a{
-    color:#777;
+    color:#262626;
     text-decoration:none;
     transition:.3s;
 }
 
 .sidebar a:hover{
-    color:black;
+    color:rgba(40, 40, 40, 0.671);
+    font-style: italic;
 }
 
 .icon-row{
@@ -177,7 +179,6 @@ section{
 }
 
 /* ABOUT */
-
 .about-box{
     max-width:700px;
     color:#555;
@@ -245,7 +246,7 @@ section{
 
 .project-description{
     flex:1;
-
+    max-width: 620px;
     padding:35px;
 
     border-radius:28px;
@@ -364,48 +365,242 @@ section{
     cursor:pointer;
 }
 
-/* MOBILE */
 
-@media(max-width:1000px){
+    /* =========================
+   HAMBURGER (hidden desktop)
+========================= */
+
+.hamburger {
+    display:none;
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:2000;
+
+    width:50px;
+    height:50px;
+    border-radius:12px;
+
+    border:none;
+    background:white;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+
+    font-size:20px;
+    cursor:pointer;
+}
+
+/*
+1337px move description below)
+
+1041px description gets too long
+-socials too tight
+
+1023px description too long
+
+*/
+
+/*LG LAPTOP*/
+@media (max-width: 1280px) {
 
 .container{
-    grid-template-columns:1fr;
-    gap:80px;
+    grid-template-columns:220px 1fr;
+    gap:40px;
     padding:40px;
 }
 
 .sidebar{
-    position:relative;
+    padding:25px;
+}
+
+.sidebar h2{
+    font-size:1.5rem;
+}
+
+.icon-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
 }
 
 .section-title{
-    font-size:2.2rem;
+    font-size:2.4rem;
 }
 
-.project-image{
-    height:350px;
-}
+/* Stack projects sooner */
 .project{
     flex-direction:column;
-    align-items:flex-start;
+    align-items:center;
+    gap:20px;
 }
 
-.project-image{
+/* Images become responsive */
+.project-image,
+.project-image-LG{
     width:100%;
-    max-width:400px;
+    max-width:500px;
     height:auto;
 }
 
+/* Description becomes full width under image */
 .project-description{
     width:100%;
+    max-width:700px;
+    padding:28px;
 }
 
+.project-description h3{
+    font-size:1.45rem;
+}
 }
 
+
+/* ==========================
+   TABLET / SMALL LAPTOP
+========================== */
+
+
+@media (max-width: 1150px) {
+
+.container{
+    grid-template-columns:220px 1fr;
+    gap:40px;
+    padding:40px;
+}
+
+.sidebar{
+    padding:25px;
+}
+
+.sidebar h2{
+    font-size:1.5rem;
+}
+
+.icon-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.section-title{
+    font-size:2.4rem;
+}
+
+/* Stack projects sooner */
+.project{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+}
+
+/* Images become responsive */
+.project-image,
+.project-image-LG{
+    width:100%;
+    max-width:500px;
+    height:auto;
+}
+
+/* Description becomes full width under image */
+.project-description{
+    width:100%;
+    max-width:700px;
+    padding:28px;
+}
+
+.project-description h3{
+    font-size:1.45rem;
+}
+}
+
+
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .container{
+        grid-template-columns:1fr;
+        gap:80px;
+        padding:40px;
+    }
+
+    .sidebar{
+        position:relative;
+    }
+
+    .section-title{
+        font-size:2.2rem;
+    }
+
+    .project-image{
+        height:350px;
+    }
+    .project{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .project-image{
+        width:100%;
+        max-width:400px;
+        height:auto;
+    }
+
+    .project-description{
+        width:100%;
+    }
+
+/* =========================
+MOBILE SIDEBAR HAMBURGER NAV BEHAVIOR
+========================= */
+    .hamburger {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .sidebar {
+        position:fixed;
+        top:0;
+        left:0;
+        height:100vh;
+        width:85%;
+        max-width:320px;
+
+        transform:translateX(-110%);
+        transition:0.35s ease;
+
+        z-index:1500;
+
+        overflow-y:auto;
+    }
+
+    .sidebar.active {
+        transform:translateX(0);
+    }
+
+    /* dark overlay */
+    .overlay {
+        display:none;
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,0.3);
+        z-index:1400;
+    }
+
+    .overlay.active {
+        display:block;
+    }
+}
 </style>
 </head>
 
 <body>
+    <!--Hamburger Menu-->
+    <button class="hamburger" id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="overlay" id="overlay"></div>
+
   <!-- LIGHTBOX POPUP -->
 <div id="lightbox" class="lightbox">
   <span class="close">&times;</span>
@@ -419,45 +614,35 @@ section{
         <div class="profile">
         <img src="images/portfolio_foto.jpg">
         </div>
-        
         <h2>Bradyn Anderson</h2>
-        
         <p class="role">
         Graphic & UI/UX Designer<br>
         UTA Communication Technology
         </p>
-        
         <nav>
         <a href="#about">About</a>
         <a href="#designs">Selected Work</a>
         <a href="#contact">Contact</a>
         </nav>
-        
         <div class="icon-row">
-        
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/bradynanderson/" target="_blank">
                     <i class="fa-brands fa-linkedin-in"></i>
                 </a>
-        
                 <a href="https://www.instagram.com/b.page.anderson/" target="_blank">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
-        
                 <a href="https://x.com/BPage_Anderson" target="_blank">
                     <i class="fa-brands fa-x-twitter"></i>
                 </a>
             </div>
-        
         <div class="email">
             <a href="mailto:bradynanderson1@gmail.com">
                 <i class="fa-solid fa-envelope"></i>
             </a>
         </div>
-        
-        </div>
-
-        </aside>
+    </div>
+    </aside>
 
     <!-- SCROLLABLE CONTENT -->
     <main class="content">
@@ -483,8 +668,6 @@ section{
         <section id="designs">
             <h2 class="section-title">Graphic Designs</h2>
 
-
-
             <!--Anna Poster-->
             <div class="project">
                 <div class="project-image">
@@ -502,7 +685,6 @@ section{
             </div>
 
             <!--B logo-->
-
             <div class="project">
             <div class="project-image">
                 <img src="images/bacardi-mockup.jpg" class="popup">
@@ -624,6 +806,29 @@ document.querySelector(".close").onclick = () => {
     lightbox.style.display = "none";
 };
 
+
+/*HAMBURGER MENU*/
+const hamburger = document.getElementById("hamburger");
+const sidebar = document.querySelector(".sidebar");
+const overlay = document.getElementById("overlay");
+
+hamburger.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+});
+
+overlay.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+});
+
+// optional: close menu when clicking a link
+document.querySelectorAll(".sidebar a").forEach(link => {
+    link.addEventListener("click", () => {
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+    });
+});
   </script>
 </body>
 </html>
